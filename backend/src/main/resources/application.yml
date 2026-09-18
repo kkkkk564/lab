@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: lab-system
+  datasource:
+    url: jdbc:mysql://localhost:3306/lab_system?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: "263030"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: false
+
+jwt:
+  secret: campus-lab-reservation-system-jwt-secret-2026
+  expire-hours: 24
+
+# 如需切回嵌入式 H2（零依赖演示），把 datasource 换为：
+# spring.datasource.url: jdbc:h2:file:./data/labdb;AUTO_SERVER=TRUE
+# spring.datasource.username: sa
+# spring.datasource.password: ""
+# spring.datasource.driver-class-name: org.h2.Driver
+# 并在 pom.xml 中把 mysql-connector-j 换回 h2 依赖
